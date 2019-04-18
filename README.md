@@ -1,7 +1,9 @@
 ```
+git clone https://github.com/chrisjsimpson/couchdbbasic.git
+cd couchdbbasic
 virtualenv venv
 . venv/bin/activate
-pip install requests
-pip install flask
+pip install flask requests
 export FLASK_APP=main.py
+flask run
 ```
