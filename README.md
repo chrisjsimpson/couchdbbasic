@@ -7,3 +7,4 @@ pip install flask requests
 export FLASK_APP=main.py
 flask run
 ```
+Visit http://localhost:5000/
