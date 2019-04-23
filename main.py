@@ -45,8 +45,11 @@ def process():
     file = request.files[item] #octec stream
     if file.filename != "":
       filename = secure_filename(file.filename)
-      files = {filename : file}
-      req = requests.put(couchHost + '/' + shopName + '/' + filename + '?rev=' + revisionId, files=files)
+      #files = {filename : file.read()}
+      import pdb;pdb.set_trace()
+      headers = {'Content-Type': file.mimetype}
+      req = requests.put(couchHost + '/' + shopName + '/' + filename + '?rev=' + revisionId, data=file.read(),
+            headers=headers)
       response = json.loads(req.text)
       revisionId = response['rev']
   return "ok"
